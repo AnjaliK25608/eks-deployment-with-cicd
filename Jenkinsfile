@@ -20,7 +20,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 script {
-                    sh 'docker buildx build -t anjalik311/devops-integration .'
+                    sh 'docker buildx build -t anjalik919/devops-integration .'
                 }
             }
         }
@@ -28,9 +28,9 @@ pipeline {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                        sh 'docker login -u anjalik311 -p ${dockerhubpwd}'
+                        sh 'docker login -u anjalik919 -p ${dockerhubpwd}'
                     }
-                    sh 'docker push anjalik311/devops-integration'
+                    sh 'docker push anjalik919/devops-integration'
                 }
             }
         }
